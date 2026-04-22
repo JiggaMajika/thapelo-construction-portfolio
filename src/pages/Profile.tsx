@@ -148,7 +148,7 @@ export default function Profile() {
             <h4 className="font-heading uppercase font-bold text-theme tracking-[0.11em] text-[18px] mb-4 flex justify-center items-center gap-3">
                <span className="w-12 h-[3px] bg-theme inline-block"></span> Transferable Value
             </h4>
-            <h2 className="font-heading font-bold text-[40px] md:text-[50px] uppercase leading-[1.1] mb-8">
+            <h2 className="font-heading font-bold text-[40px] md:text-[50px] uppercase leading-[1.1] mb-8 text-theme">
               Professional Background
             </h2>
           </div>
@@ -184,7 +184,7 @@ export default function Profile() {
             {/* Block 2: Leadership & Coordination */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                <div>
-                 <img src="https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2" alt="Stadium seating representing massive scale operations, no people" className="w-full h-[350px] object-cover border-b-8 border-theme shadow-2xl" crossOrigin="anonymous" />
+                 <img src="https://images.pexels.com/photos/2827400/pexels-photo-2827400.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2" alt="Busy corporate catering and office environment" className="w-full h-[350px] object-cover border-b-8 border-theme shadow-2xl" crossOrigin="anonymous" />
                </div>
                <div>
                  <h3 className="font-heading font-bold text-[30px] uppercase mb-6 text-white leading-[1.2]">Team Coordination & Site Logistics</h3>
@@ -213,12 +213,21 @@ export default function Profile() {
 
       {/* CTA Strip to Motivation */}
       <section className="bg-theme py-[80px] lg:py-[120px]">
-        <div className="max-w-[1170px] mx-auto px-[15px] flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="max-w-[1170px] mx-auto px-[15px] flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
           <h2 className="font-heading font-bold text-[40px] text-white uppercase m-0 leading-[1.2] max-w-[800px]">
             Discover my motivation to build Bedfordshire's future.
           </h2>
           <Link to="/why-construction" className="bg-white text-title font-heading font-bold uppercase text-[18px] px-[45px] py-[22px] hover:bg-title hover:text-white transition-colors shrink-0 shadow-xl">
             Why Construction?
+          </Link>
+        </div>
+
+        <div className="max-w-[1170px] mx-auto px-[15px] flex flex-col md:flex-row items-center justify-between gap-8">
+          <h2 className="font-heading font-bold text-[40px] text-title border-l-4 border-white pl-6 uppercase m-0 leading-[1.2] max-w-[800px]">
+            Or explore my full 20-year work history and operational background.
+          </h2>
+          <Link to="/experience" className="bg-[#141414] text-white font-heading font-bold uppercase text-[18px] px-[45px] py-[22px] hover:bg-white hover:text-title transition-colors shrink-0 shadow-xl">
+            View Experience
           </Link>
         </div>
       </section>

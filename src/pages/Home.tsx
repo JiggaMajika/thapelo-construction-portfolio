@@ -1,39 +1,98 @@
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const homeSlides = [
+  {
+    image: "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    heading: "Ready to Build Bedfordshire’s Future",
+    subheading: "...with Reliability, Safety, and Proven Teamwork."
+  },
+  {
+    image: "https://images.pexels.com/photos/175039/pexels-photo-175039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    heading: "Seeking an Apprenticeship Pathway",
+    subheading: "Committed to securing a long-term, structurally supported role in the built environment."
+  },
+  {
+    image: "https://images.pexels.com/photos/816056/pexels-photo-816056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    heading: "Fully Supported & Vetted",
+    subheading: "Connected via Luton's Inclusive Growth and fully prepared to deploy immediately."
+  }
+];
+
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % homeSlides.length);
+    }, 6000); // 6 seconds auto-play
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % homeSlides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + homeSlides.length) % homeSlides.length);
+
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative h-[85vh] min-h-[600px] flex items-center bg-[#0D0D0D] overflow-hidden">
-        {/* Background - no people allowed */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/70 z-10" />
-          <img 
-            src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-            alt="High-quality construction context, realistic structure, no people."
-            className="w-full h-full object-cover"
-            crossOrigin="anonymous"
-          />
-        </div>
+      {/* Hero Carousel Section */}
+      <section className="relative h-[85vh] min-h-[600px] flex items-center bg-[#0D0D0D] overflow-hidden group">
+        {/* Carousel Background Images */}
+        {homeSlides.map((slide, idx) => (
+          <div 
+            key={idx} 
+            className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${idx === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <div className="absolute inset-0 bg-black/70 z-10" />
+            <img 
+              src={slide.image} 
+              alt={slide.heading}
+              className="w-full h-full object-cover"
+              crossOrigin="anonymous"
+            />
+          </div>
+        ))}
         
         <div className="relative z-20 max-w-[1170px] mx-auto px-[15px] w-full mt-10">
           <div className="max-w-[900px]">
-            <h1 className="font-heading font-bold text-white text-[50px] lg:text-[70px] leading-[1.05] mb-8 uppercase">
-              Building Bedfordshire’s Future with Reliability, Safety, and Proven Teamwork.
-            </h1>
-            <p className="font-body text-white/95 text-[20px] md:text-[24px] leading-[1.6] mb-12 max-w-[800px]">
-              Experienced, safety-conscious, and ready to contribute. Bringing over 20 years of transferable expertise to a secure, long-term career in construction—equipped with a primary focus on the transformative developments across Luton and the Power Court site.
-            </p>
-            <div className="flex flex-wrap gap-5">
-              <Link to="/profile" className="bg-theme text-white font-heading font-bold uppercase text-[18px] px-[45px] py-[22px] hover:bg-white hover:text-theme transition-colors flex items-center justify-center gap-3">
-                Discover More <ArrowRight size={22} />
-              </Link>
-              <Link to="/contact" className="bg-white text-title font-heading font-bold uppercase text-[18px] px-[45px] py-[22px] hover:bg-theme hover:text-white transition-colors">
-                Contact Me
-              </Link>
-            </div>
+             <div key={currentSlide} className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <h1 className="font-heading font-bold text-white text-[50px] lg:text-[70px] leading-[1.05] mb-4 uppercase">
+                  {homeSlides[currentSlide].heading}
+                </h1>
+                <h2 className="font-heading font-bold text-theme text-[30px] lg:text-[40px] leading-[1.1] mb-8 uppercase">
+                  {homeSlides[currentSlide].subheading}
+                </h2>
+                <p className="font-body text-white/95 text-[20px] md:text-[24px] leading-[1.6] mb-12 max-w-[800px]">
+                  Experienced, safety-conscious, and ready to contribute. Bringing over 20 years of transferable expertise to a secure, long-term career in construction—equipped with a primary focus on the transformative developments across Luton and the Power Court site.
+                </p>
+                <div className="flex flex-wrap gap-5">
+                  <Link to="/profile" className="bg-theme text-white font-heading font-bold uppercase text-[18px] px-[45px] py-[22px] hover:bg-white hover:text-theme transition-colors flex items-center justify-center gap-3">
+                    Discover More <ArrowRight size={22} />
+                  </Link>
+                  <Link to="/contact" className="bg-white text-title font-heading font-bold uppercase text-[18px] px-[45px] py-[22px] hover:bg-theme hover:text-white transition-colors">
+                    Contact Me
+                  </Link>
+                </div>
+             </div>
           </div>
+        </div>
+
+        {/* Carousel Prev/Next Navigation Controls */}
+        <div className="absolute z-30 bottom-10 right-4 md:right-10 flex gap-4 hidden md:flex">
+           <button 
+             onClick={prevSlide} 
+             className="w-14 h-14 bg-white/10 hover:bg-theme text-white border border-white/20 flex items-center justify-center transition-colors"
+             aria-label="Previous Slide"
+           >
+             <ChevronLeft size={28} />
+           </button>
+           <button 
+             onClick={nextSlide} 
+             className="w-14 h-14 bg-white/10 hover:bg-theme text-white border border-white/20 flex items-center justify-center transition-colors"
+             aria-label="Next Slide"
+           >
+             <ChevronRight size={28} />
+           </button>
         </div>
       </section>
 

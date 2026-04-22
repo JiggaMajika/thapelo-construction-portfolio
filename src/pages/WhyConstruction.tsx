@@ -48,7 +48,7 @@ export default function WhyConstruction() {
             <h4 className="font-heading uppercase font-bold text-theme tracking-[0.11em] text-[18px] mb-4 flex justify-center items-center gap-3">
               <span className="w-12 h-[3px] bg-theme inline-block"></span> Career Trajectory
             </h4>
-            <h2 className="font-heading font-bold text-[40px] md:text-[50px] uppercase leading-[1.1] mb-12">
+            <h2 className="font-heading font-bold text-[40px] md:text-[50px] uppercase leading-[1.1] mb-12 text-theme">
               A Structured Pathway to Sustainable Employment
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left mt-8">
@@ -80,7 +80,7 @@ export default function WhyConstruction() {
                  Fully Supported <br/>& Ready To Deploy
                </h2>
                <p className="font-body text-[22px] text-white/95 leading-relaxed mb-10">
-                 I am a Universal Credit claimant and am proactively utilizing regional support networks to successfully re-enter the workforce through an apprenticeship in this high-growth sector.
+                 I am a Universal Credit claimant and am proactively utilising regional support networks to successfully re-enter the workforce through an apprenticeship in this high-growth sector.
                </p>
                <Link to="/contact" className="bg-title text-white font-heading font-bold uppercase text-[18px] px-[45px] py-[22px] hover:bg-white hover:text-title transition-colors inline-block shadow-lg">
                  Get In Touch Today
@@ -101,8 +101,8 @@ export default function WhyConstruction() {
                   <li className="flex items-start gap-5">
                     <div className="w-4 h-4 bg-title shrink-0 mt-2"></div>
                     <div className="font-body text-body text-[18px] leading-relaxed">
-                      <strong className="text-title text-[22px] block mb-1">Zain Ahmed</strong>
-                      Employment Specialist, Connect to Work (Luton Council).
+                      <strong className="text-title text-[22px] block mb-1">Zain Ahmed & Sam</strong>
+                      Employment Specialist & JCP Work Coach, Connect to Work (Luton Council).
                     </div>
                   </li>
                 </ul>

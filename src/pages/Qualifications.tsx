@@ -51,7 +51,7 @@ export default function Qualifications() {
                   <div className="w-3 h-3 bg-theme mt-2 shrink-0"></div>
                   <div>
                     <strong className="text-title text-[20px] block mb-1">Security Industry Authority (SIA)</strong>
-                    Held via G4S, authorized by the Home Office (2017, historical/renewable).
+                    Held via G4S, authorised by the Home Office (2017, historical/renewable).
                   </div>
                 </li>
               </ul>

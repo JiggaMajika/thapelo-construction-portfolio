@@ -72,7 +72,7 @@ export default function AvailabilityReferences() {
               <CalendarCheck className="w-12 h-12 text-theme mb-6" />
                <h4 className="font-heading font-bold text-title uppercase text-[22px] mb-3">Connect to Work</h4>
                <p className="font-body text-[16px] text-body leading-relaxed mb-6">
-                 Verified by Job Coach: Zain Ahmed. Facilitated through Luton Council Directorate of Inclusive Growth.
+                 Verified by Employment Specialist: Zain Ahmed, and JCP Work Coach: Sam. Facilitated through Luton Council Directorate of Inclusive Growth.
                </p>
                <span className="inline-block bg-grey text-title font-heading font-bold text-[14px] uppercase px-4 py-2 border border-border-custom">Status Validation</span>
             </div>

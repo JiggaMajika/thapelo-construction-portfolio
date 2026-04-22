@@ -27,7 +27,8 @@ export default function Footer() {
           <ul className="text-[#868A8A] space-y-3 font-body">
             <li>Connect to Work (Luton Council)</li>
             <li>Referred via Luton Borough Council Directorate of Inclusive Growth</li>
-            <li>Job Coach: Zain Ahmed</li>
+            <li>Employment Specialist: Zain Ahmed</li>
+            <li>JCP Work Coach: Sam</li>
           </ul>
         </div>
       </div>

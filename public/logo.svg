@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" width="100%" height="100%">
+  <!-- Hard Hat Vector -->
+  <g fill="none" stroke="#FFB800" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main Dome -->
+    <path d="M 100 200 C 100 70 400 70 400 200" />
+    
+    <!-- Ribs / Ridges on the helmet -->
+    <path d="M 170 100 Q 190 150 190 190" stroke-width="8" />
+    <path d="M 250 70 Q 250 130 250 190" stroke-width="8" />
+    <path d="M 330 100 Q 310 150 310 190" stroke-width="8" />
+    
+    <!-- Brim / Peak -->
+    <path d="M 50 230 Q 250 260 450 230" stroke-width="12" />
+    <path d="M 100 200 C 100 215 50 215 50 230" />
+    <path d="M 400 200 C 400 215 450 215 450 230" />
+    
+    <!-- Base band -->
+    <path d="M 95 190 L 405 190" stroke-width="12" />
+    <!-- Front bracket/clip -->
+    <rect x="220" y="170" width="60" height="25" rx="3" stroke-width="8" />
+  </g>
+
+  <!-- Text -->
+  <text x="250" y="295" font-family="Impact, 'Epilogue', sans-serif" font-weight="bold" font-size="38" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">THAPELO MOLOANTOA</text>
+  <text x="250" y="335" font-family="'Rubik', 'Epilogue', sans-serif" font-weight="600" font-size="20" fill="#FFB800" text-anchor="middle" letter-spacing="1">ASPIRING CONSTRUCTION APPRENTICE</text>
+</svg>
