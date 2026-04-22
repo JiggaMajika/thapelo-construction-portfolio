@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-theme: #FC6601;
+  --color-title: #000000;
+  --color-body: #666666;
+  --color-text: #444444;
+  --color-smoke: #868A8A;
+  --color-tertiary: #141414;
+  --color-yellow: #FEC624;
+  --color-border-custom: #CECECE;
+  --color-bg-dark: #0D0D0D;
+  --color-grey: #F7F7F7;
+  
+  --font-heading: 'Rubik', sans-serif;
+  --font-body: 'Epilogue', sans-serif;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-title);
+  }
+}
