@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const slides = [
   {
@@ -14,7 +15,7 @@ const slides = [
     description: "Enhanced DBS cleared, formal HACCP safety trained, and highly comfortable executing strictly monitored safe-systems-of-work."
   },
   {
-    image: "https://images.pexels.com/photos/816056/pexels-photo-816056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.pexels.com/photos/544964/pexels-photo-544964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     heading: "Ready for Immediate Deployment",
     description: "Fully supported by Luton's Connect to Work programme. Secure your highly reliable apprenticeship candidate today."
   }
@@ -106,7 +107,12 @@ export default function Profile() {
       <section className="py-[80px] lg:py-[120px] bg-white">
         <div className="max-w-[1170px] mx-auto px-[15px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               <h4 className="font-heading uppercase font-bold text-theme tracking-[0.11em] text-[18px] mb-4 flex items-center gap-3">
                 <span className="w-12 h-[3px] bg-theme inline-block"></span> Candidate Profile
               </h4>
@@ -124,9 +130,15 @@ export default function Profile() {
                   Actively supported by Luton Council's Connect to Work programme and referred through Luton Borough Council's Directorate of Inclusive Growth.
                 </p>
               </div>
-            </div>
+            </motion.div>
             
-            <div className="bg-grey p-10 lg:p-14 border-t-8 border-theme rounded-br-[50px] shadow-lg flex flex-col justify-center">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="bg-grey p-10 lg:p-14 border-t-8 border-theme rounded-br-[50px] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-center group"
+            >
               <h3 className="font-heading font-bold text-[35px] uppercase text-title mb-6 leading-[1.2]">Why Construction?</h3>
               <p className="font-body text-[20px] text-body leading-relaxed mb-10">
                 Luton and the broader Bedfordshire region are currently defined by an incredible housing and infrastructure pipeline. Discover my full motivation for transitioning into the built environment and securing a structured pathway toward a trade qualification locally.
@@ -136,7 +148,7 @@ export default function Profile() {
                   Read My Motivation
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -155,7 +167,13 @@ export default function Profile() {
 
           <div className="space-y-20">
             {/* Block 1: Industrial & Regulated Environments */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div 
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true, margin: "-50px" }}
+               transition={{ duration: 0.6 }}
+               className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
+            >
                <div className="order-2 lg:order-1">
                  <h3 className="font-heading font-bold text-[30px] uppercase mb-6 text-white leading-[1.2]">Strict Regulated & Industrial Environments</h3>
                  <p className="font-body text-[20px] text-[#CECECE] leading-relaxed mb-8">
@@ -177,14 +195,20 @@ export default function Profile() {
                  </ul>
                </div>
                <div className="order-1 lg:order-2">
-                 <img src="https://images.pexels.com/photos/1797428/pexels-photo-1797428.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2" alt="Industrial warehouse logistics environment, no people" className="w-full h-[350px] object-cover border-b-8 border-theme shadow-2xl" crossOrigin="anonymous" />
+                 <img src="https://images.pexels.com/photos/1797428/pexels-photo-1797428.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2" alt="Industrial warehouse logistics environment, no people" className="w-full h-[350px] object-cover border-b-8 border-theme shadow-2xl hover:scale-[1.02] transition-transform duration-500" crossOrigin="anonymous" />
                </div>
-            </div>
+            </motion.div>
 
             {/* Block 2: Leadership & Coordination */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div 
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true, margin: "-50px" }}
+               transition={{ duration: 0.6 }}
+               className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+            >
                <div>
-                 <img src="https://images.pexels.com/photos/2827400/pexels-photo-2827400.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2" alt="Busy corporate catering and office environment" className="w-full h-[350px] object-cover border-b-8 border-theme shadow-2xl" crossOrigin="anonymous" />
+                 <img src="https://images.pexels.com/photos/110813/pexels-photo-110813.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2" alt="Active construction site development" className="w-full h-[350px] object-cover border-b-8 border-theme shadow-2xl hover:scale-[1.02] transition-transform duration-500" crossOrigin="anonymous" />
                </div>
                <div>
                  <h3 className="font-heading font-bold text-[30px] uppercase mb-6 text-white leading-[1.2]">Team Coordination & Site Logistics</h3>
@@ -206,7 +230,7 @@ export default function Profile() {
                    </li>
                  </ul>
                </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

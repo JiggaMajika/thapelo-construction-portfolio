@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const homeSlides = [
   {
@@ -14,7 +15,7 @@ const homeSlides = [
     subheading: "Committed to securing a long-term, structurally supported role in the built environment."
   },
   {
-    image: "https://images.pexels.com/photos/816056/pexels-photo-816056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     heading: "Fully Supported & Vetted",
     subheading: "Connected via Luton's Inclusive Growth and fully prepared to deploy immediately."
   }
@@ -98,36 +99,47 @@ export default function Home() {
 
       {/* Stats Counter Section - Overlapping style */}
       <section className="relative z-30 mt-[-50px] max-w-[1170px] mx-auto px-[15px]">
-        <div className="bg-white shadow-xl grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border-custom border-b-4 border-theme">
-          <div className="p-10 text-center md:text-left flex items-start gap-6">
-            <div className="font-heading font-bold text-[65px] text-theme leading-none">20+</div>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="bg-white shadow-xl grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border-custom border-b-4 border-theme"
+        >
+          <div className="p-10 text-center md:text-left flex items-start gap-6 group hover:bg-slate-50 transition-colors">
+            <div className="font-heading font-bold text-[65px] text-theme leading-none group-hover:scale-105 transition-transform">20+</div>
             <div>
               <div className="font-heading uppercase font-bold text-[20px] text-title mb-2">Years Experience</div>
               <p className="font-body text-body text-[16px] m-0 leading-relaxed">Customer-facing, team-leadership, and regulated environments.</p>
             </div>
           </div>
-          <div className="p-10 text-center md:text-left flex items-start gap-6">
-            <div className="font-heading font-bold text-[65px] text-theme leading-none">3+</div>
+          <div className="p-10 text-center md:text-left flex items-start gap-6 group hover:bg-slate-50 transition-colors">
+            <div className="font-heading font-bold text-[65px] text-theme leading-none group-hover:scale-105 transition-transform">3+</div>
             <div>
               <div className="font-heading uppercase font-bold text-[20px] text-title mb-2">Safety Certs</div>
               <p className="font-body text-body text-[16px] m-0 leading-relaxed">HACCP, Health & Safety, Food Safety, First Aid & Safeguarding.</p>
             </div>
           </div>
-          <div className="p-10 text-center md:text-left flex items-start gap-6">
-            <div className="font-heading font-bold text-[65px] text-theme leading-none">100%</div>
+          <div className="p-10 text-center md:text-left flex items-start gap-6 group hover:bg-slate-50 transition-colors">
+            <div className="font-heading font-bold text-[65px] text-theme leading-none group-hover:scale-105 transition-transform">100%</div>
             <div>
               <div className="font-heading uppercase font-bold text-[20px] text-title mb-2">Reliable</div>
               <p className="font-body text-body text-[16px] m-0 leading-relaxed">Track record of strict attendance across stadium events and retail.</p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Feature / About Snippet Section */}
       <section className="py-[80px] lg:py-[120px] bg-grey">
         <div className="max-w-[1170px] mx-auto px-[15px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               <h4 className="font-heading uppercase font-bold text-theme tracking-[0.11em] text-[18px] mb-4 flex items-center gap-3">
                 <span className="w-12 h-[3px] bg-theme inline-block"></span> Career Objective
               </h4>
@@ -158,8 +170,14 @@ export default function Home() {
                   My Motivation <ArrowRight size={22} />
                 </Link>
               </div>
-            </div>
-            <div className="relative">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
               <img 
                 src="https://images.pexels.com/photos/175039/pexels-photo-175039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                 alt="Realistic construction site, architecture, daylight."
@@ -170,7 +188,7 @@ export default function Home() {
                 <div className="text-white font-heading font-bold uppercase tracking-widest text-[16px] mb-2">Available Now</div>
                 <div className="text-white font-heading font-bold text-[35px] leading-none">For Apprenticeship</div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

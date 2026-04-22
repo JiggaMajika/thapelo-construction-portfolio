@@ -114,7 +114,7 @@ export default function Skills() {
              </div>
              <div className="relative">
                 <img 
-                  src="https://images.pexels.com/photos/816056/pexels-photo-816056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                  src="https://images.pexels.com/photos/224924/pexels-photo-224924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                   alt="Architectural diagrams and planning, showing precision and skill. No people."
                   className="w-full h-[650px] object-cover shadow-2xl border-t-8 border-theme"
                   crossOrigin="anonymous"

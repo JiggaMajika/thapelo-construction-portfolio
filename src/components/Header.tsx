@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Link, NavLink } from 'react-router-dom';
+import { Menu, X, Download } from 'lucide-react';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,22 +14,23 @@ export default function Header() {
         
         {/* Desktop Nav */}
         <nav className="hidden xl:flex items-center gap-5 font-heading font-medium text-[15px] uppercase tracking-wide">
-          <Link to="/" className="hover:text-theme transition-colors">Home</Link>
-          <Link to="/profile" className="hover:text-theme transition-colors">Profile</Link>
-          <Link to="/why-construction" className="hover:text-theme transition-colors">Why Construction</Link>
-          <Link to="/experience" className="hover:text-theme transition-colors">Experience</Link>
-          <Link to="/skills" className="hover:text-theme transition-colors">Skills</Link>
-          <Link to="/qualifications" className="hover:text-theme transition-colors">Qualifications</Link>
-          <Link to="/availability" className="hover:text-theme transition-colors">Availability</Link>
+          <NavLink to="/" className={({ isActive }) => isActive ? "text-theme transition-colors" : "hover:text-theme transition-colors"}>Home</NavLink>
+          <NavLink to="/profile" className={({ isActive }) => isActive ? "text-theme transition-colors" : "hover:text-theme transition-colors"}>Profile</NavLink>
+          <NavLink to="/why-construction" className={({ isActive }) => isActive ? "text-theme transition-colors" : "hover:text-theme transition-colors"}>Why Construction</NavLink>
+          <NavLink to="/experience" className={({ isActive }) => isActive ? "text-theme transition-colors" : "hover:text-theme transition-colors"}>Experience</NavLink>
+          <NavLink to="/skills" className={({ isActive }) => isActive ? "text-theme transition-colors" : "hover:text-theme transition-colors"}>Skills</NavLink>
+          <NavLink to="/qualifications" className={({ isActive }) => isActive ? "text-theme transition-colors" : "hover:text-theme transition-colors"}>Qualifications</NavLink>
+          <NavLink to="/availability" className={({ isActive }) => isActive ? "text-theme transition-colors" : "hover:text-theme transition-colors"}>Availability</NavLink>
         </nav>
         
         <div className="hidden xl:block">
-          <Link 
-            to="/contact" 
-            className="inline-flex bg-theme text-white font-heading font-bold uppercase text-[16px] px-[42px] py-[20px] hover:bg-white hover:text-theme transition-colors"
+          <a 
+            href="/Thapelo_Moloantoa_CV.pdf" 
+            download="Thapelo_Moloantoa_CV.pdf"
+            className="inline-flex bg-theme text-white font-heading font-bold uppercase text-[16px] px-[42px] py-[20px] hover:bg-white hover:text-theme transition-colors items-center gap-2"
           >
-            Contact Me
-          </Link>
+            <Download size={20} /> Download CV
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -44,14 +45,14 @@ export default function Header() {
       {/* Mobile Nav Dropdown */}
       {isMobileMenuOpen && (
         <div className="xl:hidden bg-[#141414] border-t border-white/10 absolute top-[90px] left-0 w-full flex flex-col font-heading font-medium text-[16px] uppercase tracking-wide shadow-xl">
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] border-b border-white/10 hover:text-theme transition-colors">Home</Link>
-          <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] border-b border-white/10 hover:text-theme transition-colors">Profile</Link>
-          <Link to="/why-construction" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] border-b border-white/10 hover:text-theme transition-colors">Why Construction</Link>
-          <Link to="/experience" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] border-b border-white/10 hover:text-theme transition-colors">Experience</Link>
-          <Link to="/skills" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] border-b border-white/10 hover:text-theme transition-colors">Skills</Link>
-          <Link to="/qualifications" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] border-b border-white/10 hover:text-theme transition-colors">Qualifications</Link>
-          <Link to="/availability" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] border-b border-white/10 hover:text-theme transition-colors">Availability</Link>
-          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] text-theme hover:text-white transition-colors">Contact Me</Link>
+          <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Home</NavLink>
+          <NavLink to="/profile" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Profile</NavLink>
+          <NavLink to="/why-construction" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Why Construction</NavLink>
+          <NavLink to="/experience" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Experience</NavLink>
+          <NavLink to="/skills" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Skills</NavLink>
+          <NavLink to="/qualifications" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Qualifications</NavLink>
+          <NavLink to="/availability" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Availability</NavLink>
+          <a href="/Thapelo_Moloantoa_CV.pdf" download="Thapelo_Moloantoa_CV.pdf" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] text-theme hover:text-white transition-colors flex items-center gap-2"><Download size={18} /> Download CV</a>
         </div>
       )}
     </header>

@@ -1,4 +1,5 @@
 import PageBanner from '../components/PageBanner';
+import { motion } from 'motion/react';
 
 export default function Experience() {
   const experiences = [
@@ -89,7 +90,13 @@ export default function Experience() {
       
       <section className="py-[80px] lg:py-[120px]">
         <div className="max-w-[1000px] mx-auto px-[15px]">
-          <div className="text-center mb-16 max-w-[800px] mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16 max-w-[800px] mx-auto"
+          >
              <h4 className="font-heading uppercase font-bold text-theme tracking-[0.11em] text-[18px] mb-4 flex justify-center items-center gap-3">
                 <span className="w-12 h-[3px] bg-theme inline-block"></span> Work History
               </h4>
@@ -99,11 +106,18 @@ export default function Experience() {
               <p className="font-body text-[18px] text-body leading-relaxed">
                 Spanning over two decades, my professional background showcases a definitive ability to operate within heavily regulated environments, supervise complex operations, and maintain excellent attendance records under pressure.
               </p>
-          </div>
+          </motion.div>
 
           <div className="space-y-10">
             {experiences.map((exp, idx) => (
-              <div key={idx} className="bg-white p-8 md:p-12 border-l-8 border-title shadow-md hover:border-theme transition-colors relative overflow-hidden group">
+              <motion.div 
+                key={idx} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bg-white p-8 md:p-12 border-l-8 border-title shadow-md hover:border-theme hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
+              >
                 <div className="absolute top-0 right-0 bg-grey px-6 py-3 font-heading font-bold text-theme text-[16px] uppercase tracking-wider rounded-bl-2xl">
                   {exp.period}
                 </div>
@@ -123,7 +137,7 @@ export default function Experience() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

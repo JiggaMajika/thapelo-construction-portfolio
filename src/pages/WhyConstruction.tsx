@@ -1,6 +1,7 @@
 import PageBanner from '../components/PageBanner';
 import { TrendingUp, MapPin, Landmark } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 export default function WhyConstruction() {
   return (
@@ -11,7 +12,12 @@ export default function WhyConstruction() {
       <section className="py-[80px] lg:py-[120px] bg-white">
         <div className="max-w-[1170px] mx-auto px-[15px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+            >
               <h4 className="font-heading uppercase font-bold text-theme tracking-[0.11em] text-[18px] mb-4 flex items-center gap-3">
                 <span className="w-12 h-[3px] bg-theme inline-block"></span> Local Motivation
               </h4>
@@ -28,15 +34,21 @@ export default function WhyConstruction() {
                  <MapPin className="w-10 h-10 text-theme shrink-0" />
                  <span className="font-heading font-bold text-[20px] text-title uppercase tracking-wide">Rooted In Luton, Bedfordshire</span>
               </div>
-            </div>
-            <div className="relative">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+              className="relative group"
+            >
               <img 
                 src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                 alt="Construction and urban development, no people" 
-                className="w-full h-[550px] object-cover shadow-xl border-b-8 border-theme" 
+                className="w-full h-[550px] object-cover shadow-xl border-b-8 border-theme hover:scale-[1.02] transition-transform duration-500" 
                 crossOrigin="anonymous" 
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -52,20 +64,32 @@ export default function WhyConstruction() {
               A Structured Pathway to Sustainable Employment
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left mt-8">
-               <div className="bg-white/5 border border-white/10 p-10 hover:border-theme transition-colors">
+               <motion.div 
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true, margin: "-50px" }}
+                 transition={{ duration: 0.5 }}
+                 className="bg-white/5 border border-white/10 p-10 hover:border-theme hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+               >
                   <TrendingUp className="w-12 h-12 text-theme mb-6" />
                   <h3 className="font-heading font-bold text-[26px] uppercase mb-4 text-white">Genuine Progression</h3>
                   <p className="font-body text-[18px] text-[#CECECE] leading-relaxed">
                     Construction offers a clear, long-term career with genuine earning progression based on skill and reliability. After two decades of varied, team-oriented work, I am highly focused on securing a strictly defined trade pathway.
                   </p>
-               </div>
-               <div className="bg-white/5 border border-white/10 p-10 hover:border-theme transition-colors">
+               </motion.div>
+               <motion.div 
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true, margin: "-50px" }}
+                 transition={{ duration: 0.5, delay: 0.1 }}
+                 className="bg-white/5 border border-white/10 p-10 hover:border-theme hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+               >
                   <Landmark className="w-12 h-12 text-theme mb-6" />
                   <h3 className="font-heading font-bold text-[26px] uppercase mb-4 text-white">Trade Qualification</h3>
                   <p className="font-body text-[18px] text-[#CECECE] leading-relaxed">
                     My ultimate goal is to leverage an apprenticeship to achieve a recognised trade qualification. I am fiercely committed to doing the groundwork necessary to transition into full-time, sustainable employment in the built environment.
                   </p>
-               </div>
+               </motion.div>
             </div>
           </div>
         </div>
