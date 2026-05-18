@@ -9,26 +9,39 @@ import Skills from './pages/Skills';
 import Qualifications from './pages/Qualifications';
 import AvailabilityReferences from './pages/AvailabilityReferences';
 import Contact from './pages/Contact';
+import VideoEditor from './pages/VideoEditor';
 
 export default function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow pt-[90px]">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/why-construction" element={<WhyConstruction />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/qualifications" element={<Qualifications />} />
-            <Route path="/availability" element={<AvailabilityReferences />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Routes>
+        {/* Full-screen video editor — no header/footer */}
+        <Route path="/video-editor" element={<VideoEditor />} />
+
+        {/* Portfolio layout */}
+        <Route path="/*" element={<PortfolioLayout />} />
+      </Routes>
     </Router>
+  );
+}
+
+function PortfolioLayout() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-[90px]">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/why-construction" element={<WhyConstruction />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/qualifications" element={<Qualifications />} />
+          <Route path="/availability" element={<AvailabilityReferences />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }

@@ -23,9 +23,15 @@ export default function Header() {
           <NavLink to="/availability" className={({ isActive }) => `whitespace-nowrap ${isActive ? "text-theme transition-colors" : "hover:text-theme transition-colors"}`}>Availability</NavLink>
         </nav>
         
-        <div className="hidden xl:block">
-          <Link 
-            to="/contact" 
+        <div className="hidden xl:flex items-center gap-3">
+          <Link
+            to="/video-editor"
+            className="inline-flex items-center gap-1.5 border border-white/20 text-white font-heading font-medium uppercase text-[13px] px-4 py-3 hover:border-theme hover:text-theme transition-colors"
+          >
+            🎬 Video Editor
+          </Link>
+          <Link
+            to="/contact"
             className="inline-flex bg-theme text-white font-heading font-bold uppercase text-[16px] px-[42px] py-[20px] hover:bg-white hover:text-theme transition-colors"
           >
             Contact Me
@@ -51,6 +57,7 @@ export default function Header() {
           <NavLink to="/skills" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Skills</NavLink>
           <NavLink to="/qualifications" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Qualifications</NavLink>
           <NavLink to="/availability" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `p-4 px-[15px] border-b border-white/10 transition-colors ${isActive ? 'text-theme' : 'hover:text-theme'}`}>Availability</NavLink>
+          <Link to="/video-editor" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] border-b border-white/10 transition-colors hover:text-theme">🎬 Video Editor</Link>
           <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="p-4 px-[15px] text-theme hover:text-white transition-colors">Contact Me</Link>
         </div>
       )}
