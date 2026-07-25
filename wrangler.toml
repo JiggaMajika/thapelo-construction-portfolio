@@ -1,0 +1,35 @@
+name = "the-bridge"
+main = "worker/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Static assets (built frontend) served by the Worker in production.
+# For a pure Pages deploy this block is ignored; for the combined Worker+assets
+# model, `dist` is served for non-/api routes.
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bridge-db"
+database_id = "REPLACE_WITH_YOUR_D1_ID"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "SCREENSHOTS"
+bucket_name = "bridge-screenshots"
+
+[[r2_buckets]]
+binding = "BACKUPS"
+bucket_name = "bridge-backups"
+
+# Weekly backup: Sunday 03:00 UTC
+[triggers]
+crons = ["0 3 * * 0"]
+
+[vars]
+# Non-secret config. Secrets (JWT_SECRET, INGEST_TOKEN) are set with:
+#   wrangler secret put JWT_SECRET
+#   wrangler secret put INGEST_TOKEN
+APP_NAME = "The Bridge"

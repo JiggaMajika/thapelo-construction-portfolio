@@ -1,0 +1,2 @@
+JWT_SECRET="dev-only-change-me-to-a-long-random-string"
+INGEST_TOKEN="dev-ingest-token"
