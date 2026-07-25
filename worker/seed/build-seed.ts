@@ -389,7 +389,7 @@ async function main() {
   lines.push('PRAGMA foreign_keys=ON;');
   lines.push(`-- broken promises seeded: ${brokenCount} (target >= ${brokenPromiseTarget})`);
 
-  const out = resolve(__dirname, '../../migrations/seed.sql');
+  const out = resolve(__dirname, '../../seed.sql');
   writeFileSync(out, lines.join('\n') + '\n');
   console.log(`Wrote ${out}`);
   console.log(`Vendors: ${ALL_SEED_VENDORS.length}, broken promises: ${brokenCount}`);
@@ -407,11 +407,15 @@ function buildScoreHistory(vid: string, v: SeedVendor) {
     let score = Math.round(arc[i0] + (arc[i1] - arc[i0]) * frac);
     const recordedAt = daysAgo((weeks - 1 - w) * 7);
 
-    // Sliding vendors: force a 15+ drop across the last 30 days but keep green.
-    if (v.sliding && w >= weeks - 5) {
-      const from30 = v.score + 17;
-      const step = (v.score - from30) / 4;
-      score = Math.round(from30 + step * (w - (weeks - 5)));
+    // Sliding vendors: still green, but down 18 points over the last ~35 days.
+    // The high point sits at ~35 days ago (w = weeks-6) so it falls just OUTSIDE
+    // the 30-day window the early-warning panel compares against.
+    const slideStart = weeks - 6; // ~35 days ago
+    if (v.sliding && w >= slideStart) {
+      const from = v.score + 18;
+      const span = weeks - 1 - slideStart;
+      const step = (v.score - from) / span;
+      score = Math.round(from + step * (w - slideStart));
     }
     const status =
       score >= 70 ? 'green' : score >= 45 ? 'amber' : 'red';
@@ -422,7 +426,7 @@ function buildScoreHistory(vid: string, v: SeedVendor) {
           q(vid),
           q(iso(recordedAt)),
           q(Math.max(2, Math.min(98, score))),
-          q(v.sliding && w >= weeks - 5 ? 'green' : status),
+          q(v.sliding && w >= slideStart ? 'green' : status),
           q(Math.round(score * 0.9)),
           q(Math.round(score * 1.05)),
           q(Math.round(score * 0.95)),

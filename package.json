@@ -13,8 +13,8 @@
     "db:migrate:local": "wrangler d1 migrations apply bridge-db --local",
     "db:migrate:remote": "wrangler d1 migrations apply bridge-db --remote",
     "seed:build": "tsx worker/seed/build-seed.ts",
-    "db:seed:local": "wrangler d1 execute bridge-db --local --file=./migrations/seed.sql",
-    "db:seed:remote": "wrangler d1 execute bridge-db --remote --file=./migrations/seed.sql",
+    "db:seed:local": "wrangler d1 execute bridge-db --local --file=./seed.sql",
+    "db:seed:remote": "wrangler d1 execute bridge-db --remote --file=./seed.sql",
     "deploy:worker": "wrangler deploy",
     "deploy:pages": "npm run build && wrangler pages deploy dist"
   },
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240925.0",
+    "@types/node": "^22.20.1",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.2",
