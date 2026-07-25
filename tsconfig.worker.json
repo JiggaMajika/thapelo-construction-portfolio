@@ -16,5 +16,6 @@
       "@shared/*": ["shared/*"]
     }
   },
-  "include": ["worker", "shared"]
+  "include": ["worker", "shared"],
+  "exclude": ["worker/seed"]
 }
