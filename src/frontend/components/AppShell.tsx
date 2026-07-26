@@ -99,6 +99,16 @@ export function AppShell() {
       <main className="mx-auto w-full max-w-[1400px] flex-1 px-4 py-6">
         <Outlet />
       </main>
+
+      <footer className="border-t border-line py-4">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-1 px-4 text-xs text-muted sm:flex-row">
+          <span>The Bridge — GMC &amp; AppSumo shared workspace</span>
+          <span>
+            Web dashboard built by{' '}
+            <span className="font-semibold text-ink">Global Media Content</span>
+          </span>
+        </div>
+      </footer>
     </div>
   );
 }

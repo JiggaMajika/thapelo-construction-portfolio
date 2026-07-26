@@ -98,6 +98,11 @@ export function Login() {
             ))}
           </div>
         </div>
+
+        <p className="mt-6 text-center text-xs text-muted">
+          Web dashboard built by{' '}
+          <span className="font-semibold text-ink">Global Media Content</span>
+        </p>
       </div>
     </div>
   );
